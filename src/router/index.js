@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import Intro from "../views/Intro";
 import About from "../views/About";
 import Greeting from "../views/Greeting";
+import Stack from "../views/Stack";
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,11 @@ const routes = [
     path: "/about",
     name: "about",
     component: About,
+  },
+  {
+    path: "/stack",
+    name: "stack",
+    component: Stack,
   },
 ];
 
