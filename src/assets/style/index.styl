@@ -1,0 +1,29 @@
+@import 'text.styl'
+@import 'container.styl'
+@import 'section.styl'
+
+@import 'transitions.styl'
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url(assets/fonts/sf-pro-display_regular.woff2);
+}
+
+@font-face {
+  font-family: 'SF Pro Icons';
+  src: url(assets/fonts/sf-pro-icons_regular.woff2);
+}
+
+html 
+  font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  color #ffffff
+  font-size 16px
+
+body
+  margin 0px
+  background-color #000000
+  overflow hidden
+  &::-webkit-scrollbar
+    display: none;

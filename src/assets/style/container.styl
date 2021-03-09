@@ -1,0 +1,29 @@
+.container
+  display: flex;
+  height: auto;
+  width: 100%;
+  &.align-start
+    align-items: flex-start;
+  &.align-end
+    align-items: flex-end;
+  &.align-center
+    align-items: center;
+  &.justify-space-around
+    justify-content: space-around;
+  &.justify-center
+    justify-content: center;
+  &.justify-start
+    justify-content: flex-start;
+  &.justify-end
+    justify-content: flex-end;
+  &.nowrap
+    flex-wrap nowrap
+
+.container--row
+  flex-flow: row;
+
+.container--column
+  flex-flow: column;
+
+.container--fluid
+  height: 100%;
