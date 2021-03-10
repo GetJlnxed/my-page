@@ -73,6 +73,7 @@ export default {
       state: {
         direction: null,
         mayScroll: false,
+        activatedPoints: 0,
       },
       visibility: {
         line: true,
@@ -178,10 +179,15 @@ export default {
       ],
     };
   },
+  components: {
+    Timestamp,
+    AnimatedNumber,
+  },
   methods: {
     activatePoint(id) {
       const neededPoint = this.points.find((point) => point.id == id);
       neededPoint.visible = true;
+      this.state.activatedPoints++;
     },
     pageAppeared() {
       console.log("appeared");
@@ -202,9 +208,15 @@ export default {
       }
     },
   },
-  components: {
-    Timestamp,
-    AnimatedNumber,
+  watch: {
+    state: {
+      deep: true,
+      handler: function(newVal) {
+        if (newVal.activatedPoints == this.points.length) {
+          this.state.mayScroll = true;
+        }
+      },
+    },
   },
 };
 </script>
