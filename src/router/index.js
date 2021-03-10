@@ -5,6 +5,7 @@ import Intro from "../views/Intro";
 import About from "../views/About";
 import Greeting from "../views/Greeting";
 import Stack from "../views/Stack";
+import Roadmap from "../views/Roadmap";
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,11 @@ const routes = [
     path: "/stack",
     name: "stack",
     component: Stack,
+  },
+  {
+    path: "/roadmap",
+    name: "roadmap",
+    component: Roadmap,
   },
 ];
 

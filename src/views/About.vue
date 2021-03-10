@@ -1,28 +1,17 @@
 <template>
-  <transition
-    name="fade"
-    appear
-    @after-appear="pageAppeared"
-    @after-leave="pageLeaved"
-  >
-    <div
-      class="section container"
-      @wheel="wheelHandler"
-      v-show="visibility.page"
-    >
+  <transition name="fade" appear @after-appear="pageAppeared" @after-leave="pageLeaved">
+    <div class="section container" @wheel="wheelHandler" v-show="visibility.page">
       <div class="section__label">
         <p class="text text--subheading">
           01. ———— Я
         </p>
       </div>
 
-      <div
-        class="container container--row align-center justify-center aboutWall"
-      >
+      <div class="container container--row align-center justify-center aboutWall">
         <div class="container align-center aboutWall__descriptionContainer">
           <p class="text text--test">
-            Тут я хотел бы заметить, что Цезарь не просто так на главной ебалом
-            тогрует. Водяная вода, сказки про компанию
+            Тут я хотел бы заметить, что Цезарь не просто так на главной ебалом тогрует.
+            Водяная вода, сказки про компанию
           </p>
         </div>
         <div class="container antraksLogoContainer">
@@ -41,19 +30,13 @@
               class="st0"
               points="215.13,999.79 215.34,999.5 215.5,999.5 721.5,297.5 "
             />
-            <polyline
-              class="st0"
-              points="722,0.5 791.5,-0.5 937.5,-0.5 936.5,650.5 "
-            />
+            <polyline class="st0" points="722,0.5 791.5,-0.5 937.5,-0.5 936.5,650.5 " />
             <polygon
               class="st0"
               points="976.5,650.5 827.5,792.5 681.5,650.5 721.5,650.5 721.5,297.5 215.34,999.5 -0.5,999.5 721.5,0.5 
 	936.5,0.5 936.5,650.5 "
             />
-            <polygon
-              class="st0"
-              points="1000,864 678.51,864 594,999 915.49,999 "
-            />
+            <polygon class="st0" points="1000,864 678.51,864 594,999 915.49,999 " />
           </svg>
         </div>
       </div>
@@ -67,6 +50,7 @@ export default {
   data() {
     return {
       state: {
+        direction: null,
         mayScroll: false,
       },
       visibility: {
@@ -79,17 +63,17 @@ export default {
       this.state.mayScroll = true;
     },
     pageLeaved() {
-      this.$router.push({ name: "stack" });
+      if (this.state.direction == "down") this.$router.push({ name: "stack" });
+      else this.$router.push({ name: "intro" });
     },
     wheelHandler(event) {
       let direction = event.deltaY < 0 ? "up" : "down";
       if (this.state.mayScroll) {
-        if (direction == "down") {
-          this.visibility.page = false;
-          this.state.mayScroll = false;
-        } else {
-          this.state.mayScroll = false;
-        }
+        if (direction == "down") this.state.direction = "down";
+        else this.state.direction = "up";
+
+        this.visibility.page = false;
+        this.state.mayScroll = false;
       }
     },
   },

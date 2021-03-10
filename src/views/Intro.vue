@@ -25,15 +25,10 @@
           class="container container--column align-center justify-center scrollAdvise"
           v-if="visibility.scrollIcon"
         >
-          <div
-            class="container scrollAdvise__inner align-center justify-center"
-          >
+          <div class="container scrollAdvise__inner align-center justify-center">
             <img class="scrollAdvise__icon" src="@/assets/img/scroll.gif" />
             <transition name="slide-fade" @after-enter="scrollTextEntered">
-              <p
-                class="text scrollAdvise__text"
-                v-if="visibility.scrollIconText"
-              >
+              <p class="text scrollAdvise__text" v-if="visibility.scrollIconText">
                 {{ scrollText }}
               </p>
             </transition>
@@ -99,56 +94,67 @@ export default {
       }
     },
     swipeHandler() {
-      this.scrollText = 'fdsf'
-      console.log('swipe')
-    }
+      this.scrollText = "fdsf";
+      console.log("swipe");
+    },
   },
 };
 </script>
 
 <style lang="stylus" scoped>
-.logos
+.logos {
   position: relative;
   width: 100%;
   height: 100vh;
+}
 
-.logos__logo
+.logos__logo {
   position: absolute;
   height: 80vw;
-  min-height 80vh
+  min-height: 80vh;
   display: block;
+}
 
-.scrollAdvise
-  margin-right 5%
+.scrollAdvise {
+  margin-right: 5%;
+}
 
-.scrollAdvise__icon
-  height 8vw
-  align-self center
-  margin-bottom 20px
-  user-select:none
+.scrollAdvise__icon {
+  height: 8vw;
+  align-self: center;
+  margin-bottom: 20px;
+  user-select: none;
+}
 
-.scrollAdvise__text
-  position absolute
-  bottom -1rem
-  color #c9c9c9
-  user-select:none
+.scrollAdvise__text {
+  position: absolute;
+  bottom: -1rem;
+  color: #c9c9c9;
+  user-select: none;
+}
 
-.scrollAdvise__inner
-  position relative
+.scrollAdvise__inner {
+  position: relative;
+}
 
-@media (max-width: 850px)
-  .scrollAdvise__icon
-    height 25vw
+@media (max-width: 850px) {
+  .scrollAdvise__icon {
+    height: 25vw;
+  }
 
-  .introSection
-    flex-flow column nowrap
+  .introSection {
+    flex-flow: column nowrap;
+  }
 
-  .logos
-    display flex
-    align-items center
-    justify-content center
-    height 75%
+  .logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75%;
+  }
 
-  .logos__logo
-    min-height 100vw
+  .logos__logo {
+    min-height: 100vw;
+  }
+}
 </style>

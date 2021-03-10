@@ -1,12 +1,14 @@
 <template>
-  <transition name="fade">
-    <div class="section container align-center justify-center">
+  <transition name="fade" appear @after-leave="pageLeaved">
+    <div
+      class="section container align-center justify-center"
+      @wheel="wheelHandler"
+      v-show="visibility.page"
+    >
       <div class="section__label">
         <p class="text text--subheading">02. ———— Стэк.</p>
       </div>
-      <div
-        class="container container--row align-center justify-center nowrap slides"
-      >
+      <div class="container container--row align-center justify-center nowrap slides">
         <transition name="fade" appear>
           <div
             class="backgroundLogo container align-center justify-center"
@@ -43,10 +45,13 @@ export default {
       seltectedHatch: null,
       state: {
         hatchesAmount: 0,
+        direction: null,
         hatchesLoadedAmount: 0,
+        mayScroll: false,
       },
       visibility: {
         backgroundLogo: true,
+        page: true,
       },
       hatches: [
         {
@@ -64,6 +69,13 @@ export default {
           link: "css.png",
         },
         {
+          id: 7,
+          isHovered: false,
+          isSelected: false,
+          value: "STYLUS",
+          link: "stylus.png",
+        },
+        {
           id: 2,
           isHovered: false,
           isSelected: false,
@@ -74,57 +86,51 @@ export default {
           id: 3,
           isHovered: false,
           isSelected: false,
-          value: "VUE",
-          link: "vue.png",
+          value: "JQUERY",
+          link: "jquery.png",
         },
         {
           id: 4,
           isHovered: false,
           isSelected: false,
-          value: "STYLUS",
-          link: "stylus.png",
+          value: "VUE",
+          link: "vue.png",
         },
         {
           id: 5,
           isHovered: false,
           isSelected: false,
-          value: "GIT",
-          link: "git.png",
+          value: "NATIVE",
+          link: "vuenative.png",
         },
         {
           id: 6,
-          isHovered: false,
-          isSelected: false,
-          value: "WEBPACK",
-          link: "webpack.png",
-        },
-        {
-          id: 7,
-          isHovered: false,
-          isSelected: false,
-          value: "GULP",
-          link: "gulp.png",
-        },
-        {
-          id: 8,
           isHovered: false,
           isSelected: false,
           value: "VUETIFY",
           link: "vuetify.png",
         },
         {
+          id: 8,
+          isHovered: false,
+          isSelected: false,
+          value: "WEBPACK",
+          link: "webpack.png",
+        },
+        {
           id: 9,
           isHovered: false,
           isSelected: false,
-          value: "JQUERY",
-          link: "jquery.png",
+          value: "GULP",
+          link: "gulp.png",
         },
+
         {
           id: 10,
           isHovered: false,
           isSelected: false,
-          value: "V-NATIVE",
-          link: "vuenative.png",
+          value: "GIT",
+          link: "git.png",
         },
         {
           id: 11,
@@ -173,8 +179,23 @@ export default {
     unhoverHatchHandler(hatch) {
       hatch.isHovered = false;
     },
-    hatchEntered() {
+    hatchEntered(e) {
+      console.log(e);
       this.state.hatchesLoadedAmount++;
+    },
+    pageLeaved() {
+      if (this.state.direction == "down") this.$router.push({ name: "roadmap" });
+      else this.$router.push({ name: "about" });
+    },
+    wheelHandler(event) {
+      let direction = event.deltaY < 0 ? "up" : "down";
+      if (this.state.mayScroll) {
+        if (direction == "down") this.state.direction = "down";
+        else this.state.direction = "up";
+
+        this.visibility.page = false;
+        this.state.mayScroll = false;
+      }
     },
   },
   watch: {
@@ -182,10 +203,11 @@ export default {
       deep: true,
       handler: function(newVal) {
         if (newVal.hatchesLoadedAmount == this.state.hatchesAmount) {
-          this.hatches[6].isHovered = true;
+          this.hatches[0].isHovered = true;
+          this.state.mayScroll = true;
           setTimeout(() => {
-            this.hatches[6].isHovered = false;
-            this.clickHatchHandler(this.hatches[6]);
+            this.hatches[0].isHovered = false;
+            this.clickHatchHandler(this.hatches[0]);
           }, 500);
         }
       },
@@ -223,5 +245,9 @@ export default {
   opacity 0.2
 
 @media (max-width: 600px) {
+  .backgroundLogo {
+    width 80%
+    height 80%
+  }
 }
 </style>

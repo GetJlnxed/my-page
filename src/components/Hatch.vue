@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="slide"
-    :class="{ 'slide--hovered': hovered, 'slide--selected': selected }"
-  >
+  <div class="slide" :class="{ 'slide--hovered': hovered, 'slide--selected': selected }">
     <transition name="appear" appear @after-enter="hatchEntered">
       <span class="slide__hatch" v-show="isVisible"></span>
     </transition>
@@ -45,8 +42,8 @@ export default {
     getRandomArbitrary(min, max) {
       return Math.random() * (max - min) + min;
     },
-    hatchEntered() {
-      this.$emit("hatch-entered");
+    hatchEntered(event) {
+      this.$emit("hatch-entered", event);
     },
   },
 };
