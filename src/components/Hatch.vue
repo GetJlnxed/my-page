@@ -3,10 +3,10 @@
     class="slide"
     :class="{ 'slide--hovered': hovered, 'slide--selected': selected }"
   >
-    <transition name="appear">
+    <transition name="appear" appear @after-enter="hatchEntered">
       <span class="slide__hatch" v-show="isVisible"></span>
     </transition>
-    <transition name="slide-fade-hatch">
+    <transition name="slide-fade-hatch" appear>
       <div class="slide__title" v-if="selected">
         <span class="text text--bold">{{ title }}</span>
       </div>
@@ -33,7 +33,7 @@ export default {
     },
     title: {
       type: String,
-      default: "Skill",
+      default: "",
     },
   },
   mounted() {
@@ -44,6 +44,9 @@ export default {
   methods: {
     getRandomArbitrary(min, max) {
       return Math.random() * (max - min) + min;
+    },
+    hatchEntered() {
+      this.$emit("hatch-entered");
     },
   },
 };
@@ -93,4 +96,19 @@ export default {
 .slide-fade-hatch-enter, .slide-fade-hatch-leave-to
   transform: translateY(10px);
   opacity: 0;
+
+@media (max-width: 600px) {
+  .slide {
+    width 5%
+  }
+
+  .slide__title {
+    left -1.5vw
+  }
+
+  .backgroundLogo {
+    width 80%
+    height 80%
+  }
+}
 </style>

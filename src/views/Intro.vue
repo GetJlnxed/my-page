@@ -3,6 +3,7 @@
     <div
       class="section container introSection"
       @wheel="wheelHandler"
+      @swipe="swipeHandler"
       v-show="visibility.page"
     >
       <transition name="fade-slow" @after-appear="caesarAppeared" appear>
@@ -97,6 +98,10 @@ export default {
         }
       }
     },
+    swipeHandler() {
+      this.scrollText = 'fdsf'
+      console.log('swipe')
+    }
   },
 };
 </script>

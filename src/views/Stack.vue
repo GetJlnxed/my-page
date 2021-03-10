@@ -7,7 +7,7 @@
       <div
         class="container container--row align-center justify-center nowrap slides"
       >
-        <transition name="fade">
+        <transition name="fade" appear>
           <div
             class="backgroundLogo container align-center justify-center"
             v-if="visibility.backgroundLogo"
@@ -25,6 +25,7 @@
           @click.native="clickHatchHandler(hatch)"
           @mouseover.native="hoverHatchHandler(hatch)"
           @mouseleave.native="unhoverHatchHandler(hatch)"
+          @hatch-entered="hatchEntered"
         />
       </div>
     </div>
@@ -40,8 +41,12 @@ export default {
     return {
       selectedImage: "",
       seltectedHatch: null,
+      state: {
+        hatchesAmount: 0,
+        hatchesLoadedAmount: 0,
+      },
       visibility: {
-        backgroundLogo: false,
+        backgroundLogo: true,
       },
       hatches: [
         {
@@ -141,7 +146,51 @@ export default {
   components: {
     Hatch,
   },
-  methods: {},
+  created() {
+    this.state.hatchesAmount = this.hatches.length;
+  },
+  methods: {
+    clickHatchHandler(hatch) {
+      if (this.seltectedHatch != hatch) {
+        this.unselectAllhatches();
+        this.seltectedHatch = hatch;
+        this.selectedImage = hatch.link;
+        hatch.isSelected = true;
+        this.visibility.backgroundLogo = false;
+        setTimeout(() => {
+          this.visibility.backgroundLogo = true;
+        }, 200);
+      }
+    },
+    unselectAllhatches() {
+      this.hatches.forEach((hatch) => {
+        hatch.isSelected = false;
+      });
+    },
+    hoverHatchHandler(hatch) {
+      hatch.isHovered = true;
+    },
+    unhoverHatchHandler(hatch) {
+      hatch.isHovered = false;
+    },
+    hatchEntered() {
+      this.state.hatchesLoadedAmount++;
+    },
+  },
+  watch: {
+    state: {
+      deep: true,
+      handler: function(newVal) {
+        if (newVal.hatchesLoadedAmount == this.state.hatchesAmount) {
+          this.hatches[6].isHovered = true;
+          setTimeout(() => {
+            this.hatches[6].isHovered = false;
+            this.clickHatchHandler(this.hatches[6]);
+          }, 500);
+        }
+      },
+    },
+  },
   computed: {
     itemImage() {
       if (!this.selectedImage) {
@@ -172,4 +221,7 @@ export default {
   max-width: 100%;
   max-height: 100%;
   opacity 0.2
+
+@media (max-width: 600px) {
+}
 </style>

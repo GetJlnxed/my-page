@@ -25,7 +25,7 @@
             тогрует. Водяная вода, сказки про компанию
           </p>
         </div>
-        <div class="container">
+        <div class="container antraksLogoContainer">
           <svg
             version="1.1"
             id="Слой_1"
@@ -79,7 +79,7 @@ export default {
       this.state.mayScroll = true;
     },
     pageLeaved() {
-      this.$router.push({ name: "intro" });
+      this.$router.push({ name: "stack" });
     },
     wheelHandler(event) {
       let direction = event.deltaY < 0 ? "up" : "down";
@@ -97,12 +97,19 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.section__label
+  z-index 2
+
+.antraksLogoContainer
+  position static
+
 .aboutWall
   background url('../assets/img/texture50per.png')
   background-color #000000
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  z-index 1
 
 .aboutWall__descriptionContainer
   padding 2rem 4rem
@@ -131,6 +138,25 @@ export default {
 
   100% {
     stroke #575757
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutWall {
+    background #000000
+  }
+
+  .antraksLogo {
+    z-index -1
+    height 100%
+  }
+
+  .antraksLogoContainer {
+    position absolute
+  }
+
+  .aboutWall__descriptionContainer {
+    padding 1rem 2rem
   }
 }
 </style>
