@@ -1,4 +1,4 @@
-# my-page
+# CV project
 
 ## Project setup
 
@@ -23,9 +23,7 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Demo
+https://getjlnxed.github.io/my-page/
 
 git subtree push --prefix dist origin gh-pages
