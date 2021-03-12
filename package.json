@@ -35,7 +35,8 @@
     "vue-template-compiler": "^2.6.11"
   },
   "gitHooks": {
-    "pre-commit": "\"[Husky] pre-commit\" && lint-staged"
+    "pre-commit": "echo '[Husky pre-commit]' && lint-staged",
+    "pre-push": "echo '[Husky pre-push]' && build && pages"
   },
   "lint-staged": {
     "*.{js,jsx,vue}": [
