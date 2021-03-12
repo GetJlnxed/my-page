@@ -36,7 +36,7 @@
   },
   "gitHooks": {
     "pre-commit": "echo '[Husky pre-commit]' && lint-staged",
-    "post-commit": "echo '[Husky post-commith]' && vue-cli-service build && lint-staged && npm run pages"
+    "post-commit": "echo '[Husky post-commith]' && vue-cli-service build && lint-staged && git add . && npm run pages"
   },
   "lint-staged": {
     "*.{js,jsx,vue}": [
