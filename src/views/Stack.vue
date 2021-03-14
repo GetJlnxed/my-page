@@ -1,19 +1,12 @@
 <template>
   <transition name="fade" appear @after-leave="pageLeaved">
-    <div
-      class="section container align-center justify-center"
-      @wheel="wheelHandler"
-      v-show="visibility.page"
-    >
+    <div class="section container align-center justify-center" @wheel="wheelHandler" v-show="visibility.page">
       <div class="section__label">
         <p class="text text--subheading">02. ———— Стэк.</p>
       </div>
       <div class="container container--row align-center justify-center nowrap slides">
         <transition name="fade" appear>
-          <div
-            class="backgroundLogo container align-center justify-center"
-            v-if="visibility.backgroundLogo"
-          >
+          <div class="backgroundLogo container align-center justify-center" v-if="visibility.backgroundLogo">
             <img class="backgroundLogo__logo" :src="itemImage" alt="" />
           </div>
         </transition>
@@ -201,7 +194,7 @@ export default {
   watch: {
     state: {
       deep: true,
-      handler: function(newVal) {
+      handler: function (newVal) {
         if (newVal.hatchesLoadedAmount == this.state.hatchesAmount) {
           this.hatches[0].isHovered = true;
           this.state.mayScroll = true;

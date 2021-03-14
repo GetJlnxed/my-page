@@ -1,7 +1,5 @@
 <template>
-
-    <p class="text">{{ animatedNumber }}</p>
-  
+  <p class="text">{{ animatedNumber }}</p>
 </template>
 <script>
 import { TweenMax } from "gsap";

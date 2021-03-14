@@ -1,15 +1,8 @@
 <template>
-  <transition
-    name="fade-greeting"
-    appear
-    @after-appear="pageAppeared"
-    @after-leave="pageLeaved"
-  >
+  <transition name="fade-greeting" appear @after-appear="pageAppeared" @after-leave="pageLeaved">
     <div class="section container" v-if="visibility.page">
       <div class="container container--column align-center justify-center">
-        <h2 class="text text--heading">
-          Hi, I am Roman
-        </h2>
+        <h2 class="text text--heading">Hi, I am Roman</h2>
       </div>
     </div>
   </transition>

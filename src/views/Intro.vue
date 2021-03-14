@@ -1,30 +1,14 @@
 <template>
   <transition name="fade" @after-leave="pageLeaved">
-    <div
-      class="section container introSection"
-      @wheel="wheelHandler"
-      @swipe="swipeHandler"
-      v-show="visibility.page"
-    >
+    <div class="section container introSection" @wheel="wheelHandler" @swipe="swipeHandler" v-show="visibility.page">
       <transition name="fade-slow" @after-appear="caesarAppeared" appear>
         <div class="logos">
-          <img
-            class="logos__logo"
-            src="@/assets/img/caesar/caesar-glitched.gif"
-            v-show="state.caesarGlitching"
-          />
-          <img
-            class="logos__logo"
-            src="@/assets/img/caesar/caesar_non_glitched.png"
-            v-show="!state.caesarGlitching"
-          />
+          <img class="logos__logo" src="@/assets/img/caesar/caesar-glitched.gif" v-show="state.caesarGlitching" />
+          <img class="logos__logo" src="@/assets/img/caesar/caesar_non_glitched.png" v-show="!state.caesarGlitching" />
         </div>
       </transition>
       <transition name="fade-slow" @after-enter="scrollIconEntered">
-        <div
-          class="container container--column align-center justify-center scrollAdvise"
-          v-if="visibility.scrollIcon"
-        >
+        <div class="container container--column align-center justify-center scrollAdvise" v-if="visibility.scrollIcon">
           <div class="container scrollAdvise__inner align-center justify-center">
             <img class="scrollAdvise__icon" src="@/assets/img/scroll.gif" />
             <transition name="slide-fade" @after-enter="scrollTextEntered">

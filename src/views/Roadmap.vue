@@ -1,10 +1,6 @@
 <template>
   <transition name="fade" appear @after-leave="pageLeaved">
-    <div
-      class="section container justify-center align-center"
-      v-show="visibility.page"
-      @wheel="wheelHandler"
-    >
+    <div class="section container justify-center align-center" v-show="visibility.page" @wheel="wheelHandler">
       <transition name="fade" appear>
         <div class="section__label">
           <p class="text text--subheading">03. ———— Путь.</p>
@@ -211,7 +207,7 @@ export default {
   watch: {
     state: {
       deep: true,
-      handler: function(newVal) {
+      handler: function (newVal) {
         if (newVal.activatedPoints == this.points.length) {
           this.state.mayScroll = true;
         }

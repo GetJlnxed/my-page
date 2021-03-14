@@ -2,16 +2,14 @@
   <transition name="fade" appear @after-appear="pageAppeared" @after-leave="pageLeaved">
     <div class="section container" @wheel="wheelHandler" v-show="visibility.page">
       <div class="section__label">
-        <p class="text text--subheading">
-          01. ———— Я
-        </p>
+        <p class="text text--subheading">01. ———— Я</p>
       </div>
 
       <div class="container container--row align-center justify-center aboutWall">
         <div class="container align-center aboutWall__descriptionContainer">
           <p class="text text--test">
-            Тут я хотел бы заметить, что Цезарь не просто так на главной ебалом тогрует.
-            Водяная вода, сказки про компанию
+            Тут я хотел бы заметить, что Цезарь не просто так на главной ебалом тогрует. Водяная вода, сказки про
+            компанию
           </p>
         </div>
         <div class="container antraksLogoContainer">
@@ -26,10 +24,7 @@
             class="antraksLogo"
           >
             <path class="st0" d="M575.5,374.5" />
-            <polyline
-              class="st0"
-              points="215.13,999.79 215.34,999.5 215.5,999.5 721.5,297.5 "
-            />
+            <polyline class="st0" points="215.13,999.79 215.34,999.5 215.5,999.5 721.5,297.5 " />
             <polyline class="st0" points="722,0.5 791.5,-0.5 937.5,-0.5 936.5,650.5 " />
             <polygon
               class="st0"
