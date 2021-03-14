@@ -8,7 +8,7 @@
       <div class="container container--row align-center justify-center aboutWall">
         <div class="container align-center aboutWall__descriptionContainer">
           <p class="text text--test">
-            Тут я хотел бы заметить, что Цезарь не просто так на главной ебалом тогрует. Водяная вода, сказки про
+            Тут я хотел бы заметить, что Цезарь не просто так на главной еб*лом тогрует. Водяная вода, сказки про
             компанию
           </p>
         </div>
