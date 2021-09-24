@@ -79,7 +79,7 @@ export default {
         {
           id: 0,
           title: "12.2019",
-          content: "Выбор стека. Индикация состояния комплекта",
+          content: "Какая-то значимая дата",
           direction: "left",
           visible: false,
           number: 1500,
@@ -93,7 +93,7 @@ export default {
         {
           id: 1,
           title: "01.2020",
-          content: "Модуль аналитики. Своя библиотека гистограмм",
+          content: "И ещё какая-то значимая дата",
           direction: "right",
           visible: false,
           number: 1500,
@@ -107,7 +107,7 @@ export default {
         {
           id: 2,
           title: "03.2020",
-          content: "Уникальный выставочный макет. FLISR",
+          content: "И ещё одна",
           direction: "left",
           visible: false,
           number: 1500,
@@ -121,7 +121,7 @@ export default {
         {
           id: 3,
           title: "04.2020",
-          content: "Удаленка. Увеличение эффективности",
+          content: "Ну и ещё одна",
           direction: "right",
           visible: false,
           number: 1500,
@@ -135,7 +135,7 @@ export default {
         {
           id: 4,
           title: "17.02.2022",
-          content: "text2 text 2tex2t",
+          content: "А почему бы не быть ещё одной?",
           direction: "left",
           visible: false,
           number: 1500,
@@ -149,7 +149,7 @@ export default {
         {
           id: 5,
           title: "17.02.2023",
-          content: "text2 text 2tex2t",
+          content: "Ну это последняя",
           direction: "right",
           visible: false,
           timeout: 4000,
@@ -162,7 +162,7 @@ export default {
         {
           id: 6,
           title: "17.02.3721",
-          content: "text2 text 2tex2t",
+          content: "Ладно, дальше уже не вмещается",
           direction: "left",
           visible: false,
           timeout: 4500,
@@ -207,7 +207,7 @@ export default {
   watch: {
     state: {
       deep: true,
-      handler: function (newVal) {
+      handler: function(newVal) {
         if (newVal.activatedPoints == this.points.length) {
           this.state.mayScroll = true;
         }
@@ -233,10 +233,10 @@ export default {
   margin-right -2px
 
 .height-enter-active
-  transition: all .8s ease;
+  transition all 0.8s ease
 
 .height-leave-active
-  transition: all .3s ease;
+  transition all 0.3s ease
 
 .height-enter, .height-leave-to
   height 0px
